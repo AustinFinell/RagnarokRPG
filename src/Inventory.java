@@ -9,6 +9,7 @@ public class Inventory {
 	
 	int capacity; //max items in inventory
 	int count; //items currently in inventory
+	int coins; //number of coins in inventory
 	
 	private ArrayList<GameObject> inventory; // arrayList of GameObjects representing items in inventory
 	
@@ -54,6 +55,25 @@ public class Inventory {
 	}
 	
 	/**
+	 * Returns the number of coins in inventory
+	 * @return coins int
+	 */
+	public int getCoins() {
+		return coins;
+	}
+	
+	
+	/**
+	 * Sets the new number of coins in inventory
+	 * @param coins int
+	 */
+	public void setCoins(int coins) {
+		this.coins = coins;
+	}
+	
+	
+	
+	/**
 	 * Adds an item to the inventory
 	 * @param item GameObject
 	 */
@@ -80,14 +100,38 @@ public class Inventory {
 	 * Outputs the contents of the inventory to the console
 	 */
 	public void displayInv() {
-		System.out.println("Inventory");
-		System.out.println("---------");
+		StringBuilder sb = new StringBuilder();
+		sb.append("-----------------------------------------------\n");
+		sb.append("Inventory\tCoins: ");
+		sb.append(coins);
+		sb.append("\tCapacity: ");
+		sb.append(count);
+		sb.append("/");
+		sb.append(capacity);
+		sb.append("\n-----------------------------------------------\n");
+		
 		for(int i = 0; i < inventory.size(); i++) {
-			System.out.println(inventory.get(i));
+			sb.append(inventory.get(i));
+			sb.append("\n");
 			if((i + 1) % 5 == 0) {
-				System.out.println("------------------------------------------");
+				sb.append("-----------------------------------------------\n");
 			}
 		}
+		System.out.println(sb.toString());
+	}
+	
+	public String toString() {
+		StringBuilder sb = new StringBuilder();
+		sb.append("Inventory\tCoins: ");
+		sb.append(coins);
+		sb.append("\tCount: ");
+		sb.append(count);
+		sb.append("\tCapacity: ");
+		sb.append(capacity);
+		sb.append("\n");
+		sb.append("Contents: ");
+		sb.append(inventory.toString());
+		return sb.toString();
 	}
 
 }

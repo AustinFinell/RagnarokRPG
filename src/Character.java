@@ -1,11 +1,11 @@
 
 public class Character {
 	
-	String name;
-	int health;
-	Inventory inv;
+	protected String name;
+	protected int health;
+	protected Inventory inv;
 	
-	Character(){
+	public Character(){
 		name = "Unknown";
 		health = 100;
 		inv = new Inventory();
@@ -26,6 +26,11 @@ public class Character {
 	public int getHealth() {
 		return health;
 	}
+	
+	public void addInv(GameObject item) {
+		inv.add(item);
+	}
+	
 	
 
 }

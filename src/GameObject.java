@@ -6,8 +6,8 @@
  */
 public abstract class GameObject {
 	
-	String name;
-	int value;
+	protected String name;
+	protected int value;
 	
 	/**
 	 * Default Constructor
@@ -50,6 +50,10 @@ public abstract class GameObject {
 	 */
 	public void setValue(int value) {
 		this.value = value;
+	}
+	
+	public int getValue() {
+		return value;
 	}
 	
 	/**
