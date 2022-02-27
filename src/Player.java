@@ -22,7 +22,8 @@ public class Player extends Character{
 	 */
 	public Player(){
 		super();
-		mana = 50;
+		level = 1;
+		experience = 0;
 		strength = 5;
 		dexterity = 5;
 		intelligence = 5;
@@ -59,9 +60,7 @@ public class Player extends Character{
 		return armor;
 	}
 	
-	public int getMana() {
-		return mana;
-	}
+	
 	
 	public void setLevel(int level) {
 		this.level = level;
@@ -71,9 +70,7 @@ public class Player extends Character{
 		this.experience = experience;
 	}
 	
-	public void setMana(int mana) {
-		this.mana = mana;
-	}
+
 	
 	public void setStr(int strength) {
 		this.strength = strength;

@@ -3,22 +3,24 @@ public class Game {
 	
 	public static void main(String[] args) {
 		
-		Player player = new Player();
+		Character lais = new Character();
+		lais.setName("Lais");
 		
-		player.inv.displayInv();
+		lais.inv.add(new Food("Fish", 10, 15));
+		lais.inv.add(new Food("Bread", 2, 5));
+		lais.inv.add(new Food("Cheese", 5, 10));
+		lais.inv.add(new Food("Fish", 10, 15));
+		lais.inv.add(new Food("Bread", 2, 5));
+		lais.inv.add(new Food("Cheese", 5, 10));
+		lais.inv.add(new Food("Fish", 10, 15));
+		lais.inv.add(new Food("Bread", 2, 5));
+		lais.inv.add(new Food("Cheese", 5, 10));
 		
-		player.inv.add(new Food("fish", 5, 10));
-		player.inv.add(new Food("fish", 5, 10));
-		player.inv.add(new Food("fish", 5, 10));
-		player.inv.add(new Food("fish", 5, 10));
-		player.inv.add(new Food("fish", 5, 10));
-		player.inv.add(new Food("fish", 5, 10));
-		player.inv.add(new Food("fish", 5, 10));
-		player.inv.add(new Food("fish", 5, 10));
-		player.inv.add(new Food("fish", 5, 10));
-		player.inv.add(new Food("fish", 5, 10));
 		
-		player.inv.displayInv();
+		
+		System.out.println(lais.toString());
+		System.out.println();
+		lais.inv.displayInv();
 		
 		
 	}
