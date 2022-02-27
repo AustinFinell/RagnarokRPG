@@ -6,6 +6,8 @@
  */
 public class Player extends Character{
 	
+	private int level;
+	private int experience;
 	private int strength;
 	private int dexterity;
 	private int intelligence;
@@ -27,6 +29,14 @@ public class Player extends Character{
 		luck = 5;
 		armor = 0;
 		equips = new Equipable[7]; 
+	}
+	
+	public int getLevel() {
+		return level;
+	}
+	
+	public int getExp() {
+		return experience;
 	}
 	
 	public int getStr() {
@@ -51,6 +61,14 @@ public class Player extends Character{
 	
 	public int getMana() {
 		return mana;
+	}
+	
+	public void setLevel(int level) {
+		this.level = level;
+	}
+	
+	public void setExp(int experience) {
+		this.experience = experience;
 	}
 	
 	public void setMana(int mana) {
