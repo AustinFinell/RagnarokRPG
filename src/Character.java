@@ -122,6 +122,10 @@ public class Character {
 		this.maxMana = maxMana;
 	}
 	
+	
+	/**
+	 * Return String Representation of Character
+	 */
 	public String toString() {
 		StringBuilder sb = new StringBuilder();
 		sb.append("Name: ");

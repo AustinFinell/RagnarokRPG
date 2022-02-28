@@ -120,6 +120,10 @@ public class Inventory {
 		System.out.println(sb.toString());
 	}
 	
+	
+	/**
+	 * Return String representation of inventory
+	 */
 	public String toString() {
 		StringBuilder sb = new StringBuilder();
 		sb.append("Inventory\tCoins: ");

@@ -52,6 +52,10 @@ public abstract class GameObject {
 		this.value = value;
 	}
 	
+	/**
+	 * Returns the value of the object
+	 * @return value integer
+	 */
 	public int getValue() {
 		return value;
 	}

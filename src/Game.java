@@ -3,7 +3,7 @@ public class Game {
 	
 	public static void main(String[] args) {
 		
-		Character lais = new Character();
+		Player lais = new Player();
 		lais.setName("Lais");
 		
 		lais.inv.add(new Food("Fish", 10, 15));
