@@ -6,23 +6,19 @@ public class Game {
 		Player lais = new Player();
 		lais.setName("Lais");
 		
-		lais.inv.add(new Food("Fish", 10, 15));
-		lais.inv.add(new Food("Bread", 2, 5));
-		lais.inv.add(new Food("Cheese", 5, 10));
-		lais.inv.add(new Food("Fish", 10, 15));
-		lais.inv.add(new Food("Bread", 2, 5));
-		lais.inv.add(new Food("Cheese", 5, 10));
-		lais.inv.add(new Food("Fish", 10, 15));
-		lais.inv.add(new Food("Bread", 2, 5));
-		lais.inv.add(new Food("Cheese", 5, 10));
+		Consumable fish = new Consumable("Fish", 10, 15, ConsumeStat.HEALTH);
+		Consumable bread = new Consumable("Bread", 2, 5, ConsumeStat.HEALTH);
+		Consumable cheese = new Consumable("Cheese", 5, 10, ConsumeStat.HEALTH);
 		
+		lais.inv.add(fish);
+		lais.inv.add(bread);
+		lais.inv.add(cheese);
 		
-		
-		System.out.println(lais.toString());
-		System.out.println();
 		lais.inv.displayInv();
 		
+		lais.consume(fish);
 		
+		lais.inv.displayInv();
 	}
 	
 

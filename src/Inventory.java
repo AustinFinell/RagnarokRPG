@@ -95,6 +95,19 @@ public class Inventory {
 		}
 	}
 	
+	/**
+	 * Checks if an item is in the inventory
+	 * @param item GameObject
+	 * @return true if item is in the inventory
+	 */
+	public boolean contains(GameObject item) {
+		boolean result = false;
+		if (inventory.contains(item)) {
+			result = true;
+		}
+		return result;
+	}
+	
 	
 	/**
 	 * Outputs the contents of the inventory to the console

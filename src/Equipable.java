@@ -1,14 +1,14 @@
 
-public class Equip extends GameObject{
+public class Equipable extends GameObject{
 	
 	protected EquipSlot slot;
 	
-	Equip(){
+	Equipable(){
 		super();
 		this.slot = null;
 	}
 	
-	Equip(String name, int value, EquipSlot slot) {
+	Equipable(String name, int value, EquipSlot slot) {
 		super(name, value);
 		this.slot = slot;
 	}

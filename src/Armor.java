@@ -1,5 +1,5 @@
 
-public class Armor extends Equip{
+public class Armor extends Equipable{
 	
 	private int armor;
 	

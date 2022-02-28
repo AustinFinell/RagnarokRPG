@@ -1,5 +1,5 @@
 
-public class Weapon extends Equip{
+public class Weapon extends Equipable{
 	
 	private int attack;
 	

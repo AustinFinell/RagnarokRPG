@@ -15,7 +15,7 @@ public class Player extends Character{
 	private int attack;
 	private int armor;
 		
-	private Equip[] equips; //Represents equipped items
+	private Equipable[] equips; //Represents equipped items
 	
 	/**
 	 * Default Constructor
@@ -30,7 +30,7 @@ public class Player extends Character{
 		luck = 5;
 		attack = strength;
 		armor = 0;
-		equips = new Equip[7]; 
+		equips = new Equipable[7]; 
 	}
 	
 	/**
@@ -161,11 +161,16 @@ public class Player extends Character{
 		this.attack = attack;
 	}
 	
+	public void heal(int value) {
+		health += value;
+	}
+	
+	
 	/**
 	 * Equips the item in the specified slot
 	 * @param item
 	 */
-	public void equipItem(Equip item, int slot) {
+	public void equipItem(Equipable item, int slot) {
 		equips[slot] = item;
 	}
 	
@@ -173,8 +178,26 @@ public class Player extends Character{
 	 * Returns the currently equipped items
 	 * @return equips Equip[]
 	 */
-	public Equip[] getEquips() {
+	public Equipable[] getEquips() {
 		return equips;
+	}
+	
+	public void consume(Consumable item) {
+		if(inv.contains(item)) {
+			switch (item.getStat()) {
+			case HEALTH:
+				heal(item.getPower());
+				break;
+			case MANA:
+				setMana(getMana() + item.getPower());
+				break;
+			default:
+				break;
+			}
+			inv.remove(item);
+			System.out.println(item.name + " was consumed.");
+			
+		}
 	}
 	
 	
