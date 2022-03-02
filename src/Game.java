@@ -1,24 +1,39 @@
+import java.util.Scanner;
 
 public class Game {
 	
 	public static void main(String[] args) {
+		HealthItems hpItem = new HealthItems();
+		EquipItems eqps = new EquipItems();
 		
-		Player lais = new Player();
-		lais.setName("Lais");
+		Scanner scan = new Scanner(System.in);
+		System.out.println("Welcome to RagnarokRPG!");
 		
-		Consumable fish = new Consumable("Fish", 10, 15, ConsumeStat.HEALTH);
-		Consumable bread = new Consumable("Bread", 2, 5, ConsumeStat.HEALTH);
-		Consumable cheese = new Consumable("Cheese", 5, 10, ConsumeStat.HEALTH);
+		System.out.print("Enter Name: ");
+		String playerName = scan.nextLine();
+		Player player1 = new Player(playerName);
 		
-		lais.inv.add(fish);
-		lais.inv.add(bread);
-		lais.inv.add(cheese);
+		player1.inv.add(eqps.ironSword);
+		player1.inv.add(eqps.woodenShield);
+		player1.inv.add(eqps.leatherHelmet);
+		player1.inv.add(eqps.leatherChest);
+		player1.inv.add(eqps.leatherPants);
+		player1.inv.add(eqps.leatherBoots);
+		player1.inv.add(eqps.leatherGloves);
+		player1.inv.setCoins(15);
 		
-		lais.inv.displayInv();
+		player1.inv.displayInv();
 		
-		lais.consume(fish);
+		player1.equipItem(eqps.ironSword);
 		
-		lais.inv.displayInv();
+		System.out.println(player1.getEquips());
+		player1.inv.displayInv();
+		
+		player1.unequipItem(eqps.ironSword);
+		
+		System.out.println(player1.getEquips());
+		player1.inv.displayInv();
+		
 	}
 	
 

@@ -20,8 +20,8 @@ public class Player extends Character{
 	/**
 	 * Default Constructor
 	 */
-	public Player(){
-		super();
+	public Player(String name){
+		super(name, 100, 50);
 		level = 1;
 		experience = 0;
 		strength = 5;
@@ -167,19 +167,88 @@ public class Player extends Character{
 	
 	
 	/**
-	 * Equips the item in the specified slot
-	 * @param item
+	 * Equips the item in the correct slot
+	 * @param item Equipable
+	 * Slot array example [HEAD, CHEST, LEGS, FEET, HANDS, MAINHAND, OFFHAND]
 	 */
-	public void equipItem(Equipable item, int slot) {
-		equips[slot] = item;
+	public void equipItem(Equipable item) {
+		if(inv.contains(item)) {
+			switch (item.slot) {
+			case HEAD:
+				equips[0] = item;
+				inv.remove(item);
+				break;
+			case CHEST:
+				equips[1] = item;
+				inv.remove(item);
+				break;
+			case LEGS:
+				equips[2] = item;
+				inv.remove(item);
+				break;
+			case FEET:
+				equips[3] = item;
+				inv.remove(item);
+				break;
+			case HANDS:
+				equips[4] = item;
+				inv.remove(item);
+				break;
+			case MAINHAND:
+				equips[5] = item;
+				inv.remove(item);
+				break;
+			case OFFHAND:
+				equips[6] = item;
+				inv.remove(item);
+				break;
+			
+			}
+		}
 	}
 	
 	/**
-	 * Returns the currently equipped items
-	 * @return equips Equip[]
+	 * Unequips the item and puts it back in the inventory.
+	 * @param item
 	 */
-	public Equipable[] getEquips() {
-		return equips;
+	public void unequipItem(Equipable item) {
+		if (this.inv.count < this.inv.capacity) {
+			for(int i = 0; i < equips.length; i++) {
+				if (equips[i] == null) {
+					continue;
+				}
+				else if (equips[i].equals(item)) {
+					equips[i] = null;
+					inv.add(item);
+				}
+				
+			}
+			
+		}
+		
+	}
+	
+	/**
+	 * Returns a string of the currently equipped items
+	 * @return String representation of equips array
+	 */
+	public String getEquips() {
+		StringBuilder sb = new StringBuilder();
+		sb.append("Equipment Slots:");
+		sb.append("[Head, Chest, Legs, Feet, Gloves, Mainhand, Offhand]");
+		sb.append("\nCurrently Equipped:[");
+		for (int i = 0; i < equips.length; i++) {
+			if(equips[i] == null) {
+				sb.append("None");
+			}else {
+				sb.append(equips[i].name);
+			}
+			if (i < equips.length - 1) {
+				sb.append(", ");
+			}
+		}
+		sb.append("]");
+		return sb.toString();
 	}
 	
 	public void consume(Consumable item) {

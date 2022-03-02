@@ -3,11 +3,6 @@ public class Armor extends Equipable{
 	
 	private int armor;
 	
-	Armor(){
-		super();
-		armor = 0;
-	}
-	
 	Armor(String name, int value, int armor, EquipSlot slot){
 		super(name, value, slot);
 		this.armor = armor;

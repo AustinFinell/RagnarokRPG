@@ -4,12 +4,6 @@ public class Consumable extends GameObject{
 	protected ConsumeStat stat;
 	private int power;
 	
-	public Consumable(){
-		super();
-		stat = null;
-		power = 0;
-	}
-	
 	public Consumable(String name, int value, int power, ConsumeStat stat) {
 		super(name, value);
 		this.stat = stat;
