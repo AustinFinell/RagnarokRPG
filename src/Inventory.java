@@ -133,6 +133,10 @@ public class Inventory {
 		System.out.println(sb.toString());
 	}
 	
+	public void sort() {
+		inventory.sort(null);
+	}
+	
 	
 	/**
 	 * Return String representation of inventory

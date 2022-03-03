@@ -4,7 +4,7 @@
  * @author Austin Finell
  *
  */
-public abstract class GameObject {
+public abstract class GameObject implements Comparable<GameObject>{
 	
 	protected String name;
 	protected int value;
@@ -58,6 +58,18 @@ public abstract class GameObject {
 	 */
 	public int getValue() {
 		return value;
+	}
+	
+	
+	
+	public int compareTo(GameObject item) {
+		int result = this.value - item.value;
+
+		if (this.value == item.value) {
+			result = this.name.compareTo(item.name);
+		}
+		
+		return result;
 	}
 	
 	/**

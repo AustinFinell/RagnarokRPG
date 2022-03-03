@@ -34,6 +34,10 @@ public class Game {
 		System.out.println(player1.getEquips());
 		player1.inv.displayInv();
 		
+		player1.inv.sort();
+		
+		player1.inv.displayInv();
+		
 	}
 	
 
