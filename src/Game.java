@@ -3,41 +3,40 @@ import java.util.Scanner;
 public class Game {
 	
 	public static void main(String[] args) {
+		
 		HealthItems hpItem = new HealthItems();
 		EquipItems eqps = new EquipItems();
+		EnemyTypes enmy = new EnemyTypes();
 		
 		Scanner scan = new Scanner(System.in);
+		
 		System.out.println("Welcome to RagnarokRPG!");
+		Player player = new Player("Austin");
 		
-		System.out.print("Enter Name: ");
-		String playerName = scan.nextLine();
-		Player player1 = new Player(playerName);
+		System.out.println(player.toString());
 		
-		player1.inv.add(eqps.ironSword);
-		player1.inv.add(eqps.woodenShield);
-		player1.inv.add(eqps.leatherHelmet);
-		player1.inv.add(eqps.leatherChest);
-		player1.inv.add(eqps.leatherPants);
-		player1.inv.add(eqps.leatherBoots);
-		player1.inv.add(eqps.leatherGloves);
-		player1.inv.setCoins(15);
+		player.inv.add(eqps.ironSword);
+		player.inv.add(eqps.leatherBoots);
+		player.inv.add(eqps.leatherChest);
+		player.inv.add(eqps.leatherGloves);
+		player.inv.add(eqps.leatherHelmet);
+		player.inv.add(eqps.woodenShield);
+		player.inv.add(eqps.leatherPants);
 		
-		player1.inv.displayInv();
+		player.displayInv();
 		
-		player1.equipItem(eqps.ironSword);
+		player.equipItem(eqps.ironSword);
+		player.equipItem(eqps.leatherBoots);
+		player.equipItem(eqps.leatherChest);
+		player.equipItem(eqps.leatherGloves);
+		player.equipItem(eqps.leatherHelmet);
+		player.equipItem(eqps.woodenShield);
+		player.equipItem(eqps.leatherPants);
 		
-		System.out.println(player1.getEquips());
-		player1.inv.displayInv();
+		System.out.println(player.toString());
 		
-		player1.unequipItem(eqps.ironSword);
-		
-		System.out.println(player1.getEquips());
-		player1.inv.displayInv();
-		
-		player1.inv.sort();
-		
-		player1.inv.displayInv();
-		
+		new Encounter(player, enmy.bat);
+		new Encounter(player, enmy.bat);
 	}
 	
 

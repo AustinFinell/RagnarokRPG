@@ -1,19 +1,24 @@
 
+/**
+ * Class that is an equipable object and provides defence to the player
+ * @author Austin Finell
+ *
+ */
 public class Armor extends Equipable{
 	
-	private int armor;
+	private int defence;
 	
-	Armor(String name, int value, int armor, EquipSlot slot){
+	Armor(String name, int value, int defence, EquipSlot slot){
 		super(name, value, slot);
-		this.armor = armor;
+		this.defence = defence;
 	}
 	
-	public int getAttack() {
-		return armor;
+	public int getDefence() {
+		return defence;
 	}
 	
-	public void setAttack(int armor) {
-		this.armor = armor;
+	public void setDefence(int defence) {
+		this.defence = defence;
 	}
 
 }

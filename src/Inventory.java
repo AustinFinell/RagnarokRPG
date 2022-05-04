@@ -7,11 +7,11 @@ import java.util.ArrayList;
  */
 public class Inventory {
 	
-	int capacity; //max items in inventory
-	int count; //items currently in inventory
-	int coins; //number of coins in inventory
+	protected int capacity; //max items in inventory
+	protected int count; //items currently in inventory
+	protected int coins; //number of coins in inventory
 	
-	private ArrayList<GameObject> inventory; // arrayList of GameObjects representing items in inventory
+	protected ArrayList<GameObject> inventory; // arrayList of GameObjects representing items in inventory
 	
 	/**
 	 * Default Constructor

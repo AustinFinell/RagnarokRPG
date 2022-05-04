@@ -10,6 +10,7 @@ public class EquipItems {
 	public Armor woodenShield = new Armor("Wooden Shield", 15, 2, EquipSlot.OFFHAND);
 	
 	public Weapon ironSword = new Weapon("Iron Sword", 50, 5, EquipSlot.MAINHAND);
+	public Weapon ironAxe = new Weapon("Iron Battleaxe", 50, 5, EquipSlot.MAINHAND);
 	
 
 }

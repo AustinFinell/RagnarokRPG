@@ -122,6 +122,18 @@ public class Character {
 		this.maxMana = maxMana;
 	}
 	
+	/**
+	 * Returns whether the character is dead or not
+	 * @return true if dead
+	 */
+	public boolean isDead() {
+		boolean result = false;
+		if(health < 0) {
+			result = true;
+		}
+		return result;
+	}
+	
 	
 	/**
 	 * Return String Representation of Character
@@ -138,7 +150,7 @@ public class Character {
 		sb.append(mana);
 		sb.append("\tMax Mana: ");
 		sb.append(maxMana);
-		sb.append("\nInventory: ");
+		sb.append("\n");
 		sb.append(inv.toString());
 		return sb.toString();
 	}
