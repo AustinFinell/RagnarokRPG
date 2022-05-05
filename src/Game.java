@@ -1,3 +1,4 @@
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Game {
@@ -7,6 +8,10 @@ public class Game {
 		boolean flag = true;
 		Scanner scan = new Scanner(System.in);;
 		Town town;
+		int direction = -1;
+		int buySell = -1;
+		int item = -1;
+		boolean input = false;
 		
 		System.out.println("What is your name?");
 		String name = scan.nextLine();
@@ -14,19 +19,22 @@ public class Game {
 		Player player = new Player(name);
 		
 		player.inv.coins += 100;
-		
+		player.inv.add(new Weapon("Wooden Sword", 10, 2, EquipSlot.MAINHAND));
 		
 		System.out.println("Welcome to RagnarokRPG " + player.name);
 		
-		int direction = -1;
-		int buySell = -1;
-		int item = -1;
+		
 		
 		while(flag) {
 			town = new Town();
 			scan = new Scanner(System.in);
 			player.health = player.maxHealth;
 			player.mana = player.maxMana;
+			direction = -1;
+			buySell = -1;
+			item = -1;
+			input = false;
+			
 			System.out.println("You are in town.\n");
 			System.out.println("Shops");
 			System.out.println("\t1. Blade Smith");
@@ -42,12 +50,17 @@ public class Game {
 			System.out.println("\t9. Player Stats");
 			System.out.print("What would you like to do? (0 to quit) ");
 			
-			direction = scan.nextInt();
-			
-			while(direction < 0 || direction > 9) {
-				System.out.print("\nInvalid input. Try again: ");
-				direction = scan.nextInt();
+			while(!input) {
+				try {
+					direction = scan.nextInt();
+					input = true;
+				} catch (InputMismatchException e){
+					System.out.print("\nMust enter a number. Try again: ");
+					scan.next();
+					continue;
+				} 
 			}
+			
 			
 			if (direction == 0) {
 				flag = false;

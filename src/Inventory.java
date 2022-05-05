@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 /**
@@ -141,31 +142,45 @@ public class Inventory {
 	public void equipFlow(Player player) {
 		Scanner scan = new Scanner(System.in);
 		char yesNo = 'n';
-		int choice = 0;
+		int choice = -1;
 		int limit = 0;
+		
+		
+		
 		System.out.println("Would you like to equip an item? (Y/N)");
 		yesNo = scan.nextLine().toLowerCase().charAt(0);
+		
 		while(yesNo != 'y' && yesNo != 'n') {
 			System.out.println("Invalid input. Try again. ");
 			yesNo = scan.nextLine().toLowerCase().charAt(0);
 		}
+		
 		if(yesNo == 'y') {
 			for(int i = 0; i < count; i++) {
 				System.out.println((i + 1) + ". " + inventory.get(i).name);
 				limit = i;
 			}
-			System.out.println("Which item would you like to equip? (0 to exit)");
 			
-			choice = scan.nextInt();
+			System.out.println("Which item would you like to equip? (0 to exit)");
 			while(choice < 0 || choice > limit + 1) {
-				System.out.println("Invalid input. Try again.");
-				choice = scan.nextInt();
+				try {
+					choice = scan.nextInt();
+					if(choice < 0 || choice > limit + 1) {
+						System.out.print("Invalid input. Try again: ");
+					}
+				} catch (InputMismatchException e){
+					scan.next();
+					System.out.print("Must enter a number. Try again: ");
+					continue;
+				}
 			}
+			
 			
 			if (choice == 0) {
 				return;
 			}
 			else if(inventory.get(choice - 1) instanceof Equipable) {
+				System.out.println("You have equiped the " + inventory.get(choice -1).name);
 				player.equipItem((Equipable)inventory.get(choice - 1));
 			}
 			else {

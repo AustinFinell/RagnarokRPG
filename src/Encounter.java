@@ -1,5 +1,6 @@
-import java.util.Scanner;
+import java.util.InputMismatchException;
 import java.util.Random;
+import java.util.Scanner;
 
 public class Encounter {
 	
@@ -18,6 +19,8 @@ public class Encounter {
 		pDefending = false;
 		pDex = rand.nextInt(player.getDex());
 		eEvade = rand.nextInt(enemy.getEvade());
+		
+		
 		System.out.println("\n---Battle---\n");
 		if(		enemy.name.toLowerCase().charAt(0) == 'a' || enemy.name.toLowerCase().charAt(0) == 'e' || 
 				enemy.name.toLowerCase().charAt(0) == 'i' || enemy.name.toLowerCase().charAt(0) == 'o' || 
@@ -38,6 +41,8 @@ public class Encounter {
 		while(!player.isDead() && !enemy.isDead()) {
 			if (turn == 1) {
 				pDefending = false;
+				move = -1;
+				
 				System.out.println("It is " + player.name + "'s turn.");
 				System.out.println("What would you like to do?"
 						+ "\n1. Attack"
@@ -45,11 +50,17 @@ public class Encounter {
 						+ "\n3. Consumable"
 						+ "\n4. Run");
 				
-				move = scan.nextInt();
-				
 				while (move < 1 || move > 4) {
-					System.out.println("Invalid input, try again.");
-					move = scan.nextInt();
+					try {
+						move = scan.nextInt();
+						if(move < 1 || move > 4) {
+							System.out.print("Invalid input. Try again: ");
+						}
+					} catch (InputMismatchException e) {
+						scan.next();
+						System.out.println("Must enter a number. Try again: ");
+						continue;
+					}
 				}
 				
 				if(move == 1) {
@@ -63,7 +74,7 @@ public class Encounter {
 				}
 				
 				if(move == 3) {
-					
+					int choice = -1;
 					int count = 1;
 					
 					for (int i = 0; i < player.inv.count; i++) {
@@ -85,11 +96,15 @@ public class Encounter {
 						
 					}
 					System.out.println("Choose the food to consume. (0 to cancel)");
-					int choice = scan.nextInt();
 					
 					while (choice > count || choice < 0) {
-						System.out.println("Invalid input please choose another consumable. (0 to cancel)");
-						choice = scan.nextInt();
+						try {
+							choice = scan.nextInt();
+						} catch ( InputMismatchException e) {
+							scan.next();
+							System.out.print("Must enter a number. Try again: ");
+							continue;
+						}
 					}
 					
 					if (choice == 0) {
@@ -106,7 +121,6 @@ public class Encounter {
 								}
 							}
 						}
-						
 						
 						player.consume(item);
 						turn = 0;

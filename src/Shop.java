@@ -1,3 +1,4 @@
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Shop {
@@ -10,19 +11,25 @@ public class Shop {
 	
 	public void enter(Player player) {
 		Scanner scan = new Scanner(System.in);
-		int buySell = 0;
-		int item = 0;
+		int buySell = -1;
+		int item = -1;
 		
 		inv.displayInv();
 		System.out.println("Welcome to the shop.");
 		System.out.println("You have " + player.inv.coins + " coins.");
 		System.out.print("0 to exit, 1 to buy, 2 to sell: ");
 		
-		buySell = scan.nextInt();
-		
 		while (buySell < 0 || buySell > 2) {
-			System.out.print("\nInvalid input. Try again: ");
-			buySell = scan.nextInt();
+			try {
+				buySell = scan.nextInt();
+				if(buySell < 0 || buySell > 2) {
+					System.out.print("\nInvalid input. Try again: ");
+				}
+			} catch (InputMismatchException e) {
+				System.out.print("\nMust enter a number. Try again: ");
+				scan.next();
+				continue;
+			}
 		}
 		
 		if(buySell == 0) {
@@ -33,22 +40,65 @@ public class Shop {
 			int tempCount = 0;
 			for (int i = 0; i < inv.count; i++) {
 				System.out.println((i+1) + ". " + inv.get(i).name + " Price: " + inv.get(i).value);
-				tempCount = i;
+				tempCount = i+1;
 			}
 			System.out.println("Coins: " + player.inv.coins);
 			System.out.print("What would you like to buy? (0 to exit) ");
-			item = scan.nextInt();
 			
-			if (item <0 || item > tempCount) {
-				System.out.print("\nInvalid input. Try again: ");
-				item = scan.nextInt();
+			while(item < 0 || item > tempCount) {
+				try {
+					item = scan.nextInt();
+					if(item < 0 || item > tempCount) {
+						System.out.print("Number out of range. Try again: ");
+					}
+				} catch (InputMismatchException e){
+					System.out.print("Input must be a number. Try again: ");
+					scan.next();
+					continue;
+				}
 			}
 			
 			if (item == 0) {
+				return;
 			}
 			
 			else {
 				buy(player, inv.get(item-1));;
+			}
+		}
+		
+		if(buySell == 2) {
+			int tempCount = 0;
+			boolean input = false;
+			
+			System.out.println();
+			for (int i = 0; i < player.inv.count; i++) {
+				System.out.println((i+1) + ". " + player.inv.get(i).name + " Price: " + player.inv.get(i).value);
+				tempCount = i+1;
+			}
+			
+			System.out.println("\nCoins: " + player.inv.coins);
+			System.out.print("What would you like to sell? (0 to exit) ");
+			
+			while(item < 0 || item > tempCount) {
+				try {
+					item = scan.nextInt();
+					if(item < 0 || item > tempCount) {
+						System.out.print("Number out of range. Try again: ");
+					}
+				} catch (InputMismatchException e){
+					System.out.print("Input must be a number. Try again: ");
+					scan.next();
+					continue;
+				}
+			}
+			
+			
+			if (item == 0) {
+				return;
+			}
+			else {
+				sell(player, player.inv.get(item-1));;
 			}
 		}
 		
@@ -60,15 +110,16 @@ public class Shop {
 			this.inv.coins += item.value;
 			this.inv.remove(item);
 			player.inv.add(item);
+			System.out.println("\nYou have bought " + item.name + " for " + item.value);
 		}
 		else if (player.inv.coins < item.value) {
-			System.out.println("Not enough coins.");
+			System.out.println("\nNot enough coins.");
 		}
 		else if (player.inv.count == player.inv.capacity) {
-			System.out.println("Not enough space.");
+			System.out.println("\nNot enough space.");
 		}
 		else {
-			System.out.println("Not an item.");
+			System.out.println("\nNot an item.");
 		}
 		
 	}
