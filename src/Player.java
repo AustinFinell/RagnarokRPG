@@ -397,6 +397,7 @@ public class Player extends Character{
 		if(target.isDead()) {
 			System.out.println("The " + target.name + " is dead!");
 			experience += target.getExp();
+			this.inv.coins += target.inv.coins;
 			levelCheck();
 		}
 	}
@@ -420,7 +421,7 @@ public class Player extends Character{
 		sb.append("\tInt: " + intelligence);
 		sb.append("\tLuk: " + luck);
 		sb.append("\n-------------------------------\n");
-		sb.append(getEquips());
+		sb.append(getEquips() + "\n");
 		return sb.toString();
 		
 	}

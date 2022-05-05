@@ -128,7 +128,7 @@ public class Character {
 	 */
 	public boolean isDead() {
 		boolean result = false;
-		if(health < 0) {
+		if(health <= 0) {
 			result = true;
 		}
 		return result;
