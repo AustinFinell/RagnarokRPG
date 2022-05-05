@@ -397,6 +397,7 @@ public class Player extends Character{
 		if(target.isDead()) {
 			System.out.println("The " + target.name + " is dead!");
 			experience += target.getExp();
+			System.out.println("You gain " + target.inv.coins + " coins!");
 			this.inv.coins += target.inv.coins;
 			levelCheck();
 		}

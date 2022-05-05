@@ -13,6 +13,9 @@ public class Game {
 		
 		Player player = new Player(name);
 		
+		player.inv.coins += 100;
+		
+		
 		System.out.println("Welcome to RagnarokRPG " + player.name);
 		
 		int direction = -1;
@@ -81,6 +84,7 @@ public class Game {
 			
 			if (direction == 8) {
 				player.inv.displayInv();
+				player.inv.equipFlow(player);
 			}
 			
 			if (direction == 9) {

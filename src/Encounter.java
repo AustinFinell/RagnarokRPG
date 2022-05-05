@@ -97,7 +97,7 @@ public class Encounter {
 					}
 					else {
 						Consumable item = null;
-						count = 1;
+						count = 0;
 						while(count != choice) {
 							for (int i = 0; i < player.inv.count; i++) {	
 								if(player.inv.inventory.get(i) instanceof Consumable) {
@@ -106,6 +106,8 @@ public class Encounter {
 								}
 							}
 						}
+						
+						
 						player.consume(item);
 						turn = 0;
 					}

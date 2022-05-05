@@ -27,6 +27,7 @@ public class Town {
 		bladeSmith.inv.add(weap.steelAxe);
 		bladeSmith.inv.add(weap.steelSword);
 		bladeSmith.inv.add(weap.woodenSword);
+		bladeSmith.inv.coins += 200;
 		bladeSmith.inv.sort();
 		
 		
@@ -49,6 +50,7 @@ public class Town {
 		armorer.inv.add(arm.steelPlatelegs);
 		armorer.inv.add(arm.steelShield);
 		armorer.inv.add(arm.woodenShield);
+		armorer.inv.coins += 200;
 		armorer.inv.sort();
 		
 		
@@ -62,21 +64,15 @@ public class Town {
 		leatherWorker.inv.add(arm.scaleGloves);
 		leatherWorker.inv.add(arm.scaleHelmet);
 		leatherWorker.inv.add(arm.scalePants);
+		leatherWorker.inv.coins += 200;
 		leatherWorker.inv.sort();
 		
 		
 		food.inv.add(hpItem.bread);
-		food.inv.add(hpItem.bread);
-		food.inv.add(hpItem.bread);
-		food.inv.add(hpItem.cheese);
-		food.inv.add(hpItem.cheese);
 		food.inv.add(hpItem.cheese);
 		food.inv.add(hpItem.fish);
-		food.inv.add(hpItem.fish);
-		food.inv.add(hpItem.fish);
 		food.inv.add(hpItem.healthPotion);
-		food.inv.add(hpItem.healthPotion);
-		food.inv.add(hpItem.healthPotion);
+		food.inv.coins += 200;
 		food.inv.sort();
 		
 		

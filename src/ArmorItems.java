@@ -59,29 +59,29 @@ public class ArmorItems {
 		scaleChest = new Armor("Scale Chest", 45, 4, EquipSlot.CHEST);
 		
 		bronzeChest = new Armor("Bronze Chest", 30, 3, EquipSlot.CHEST);
-		ironChest = new Armor("Iron Chest", 30, 3, EquipSlot.CHEST);
-		steelChest = new Armor("Steel Chest", 30, 3, EquipSlot.CHEST);
+		ironChest = new Armor("Iron Chest", 50, 4, EquipSlot.CHEST);
+		steelChest = new Armor("Steel Chest", 100, 5, EquipSlot.CHEST);
 		
-		leatherPants = new Armor("Leather Pants", 30, 3, EquipSlot.LEGS);
-		scalePants = new Armor("Scale Pants", 45, 4, EquipSlot.LEGS);
+		leatherPants = new Armor("Leather Pants", 20, 2, EquipSlot.LEGS);
+		scalePants = new Armor("Scale Pants", 30, 3, EquipSlot.LEGS);
 		
-		bronzePlatelegs = new Armor("Bronze Platelegs", 30, 3, EquipSlot.LEGS);
-		ironPlatelegs = new Armor("Iron Platelegs", 30, 3, EquipSlot.LEGS);
-		steelPlatelegs = new Armor("Steel Platelegs", 30, 3, EquipSlot.LEGS);
+		bronzePlatelegs = new Armor("Bronze Platelegs", 25, 2, EquipSlot.LEGS);
+		ironPlatelegs = new Armor("Iron Platelegs", 40, 3, EquipSlot.LEGS);
+		steelPlatelegs = new Armor("Steel Platelegs", 80, 4, EquipSlot.LEGS);
 		
-		leatherGloves = new Armor("Leather Gloves", 10, 1, EquipSlot.HANDS);
-		scaleGloves = new Armor("Scale Gloves", 20, 2, EquipSlot.HANDS);
+		leatherGloves = new Armor("Leather Gloves", 5, 1, EquipSlot.HANDS);
+		scaleGloves = new Armor("Scale Gloves", 15, 2, EquipSlot.HANDS);
 		
-		bronzeGauntlets = new Armor("Bronze Gauntlets", 30, 3, EquipSlot.HANDS);
+		bronzeGauntlets = new Armor("Bronze Gauntlets", 20, 2, EquipSlot.HANDS);
 		ironGauntlets = new Armor("Iron Gauntlets", 30, 3, EquipSlot.HANDS);
-		steelGauntlets = new Armor("Steel Gauntlets", 30, 3, EquipSlot.HANDS);
+		steelGauntlets = new Armor("Steel Gauntlets", 40, 4, EquipSlot.HANDS);
 		
-		leatherBoots = new Armor("Leather Boots", 20, 2, EquipSlot.FEET);
-		scaleBoots = new Armor("Scale Boots", 30, 3, EquipSlot.FEET);
+		leatherBoots = new Armor("Leather Boots", 5, 1, EquipSlot.FEET);
+		scaleBoots = new Armor("Scale Boots", 15, 2, EquipSlot.FEET);
 		
-		bronzeBoots = new Armor("Bronze Boots", 30, 3, EquipSlot.FEET);
+		bronzeBoots = new Armor("Bronze Boots", 20, 2, EquipSlot.FEET);
 		ironBoots = new Armor("Iron Boots", 30, 3, EquipSlot.FEET);
-		steelBoots = new Armor("Steel Boots", 30, 3, EquipSlot.FEET);
+		steelBoots = new Armor("Steel Boots", 40, 4, EquipSlot.FEET);
 		
 		woodenShield = new Armor("Wooden Shield", 15, 2, EquipSlot.OFFHAND);
 		bronzeShield = new Armor("Wooden Shield", 15, 2, EquipSlot.OFFHAND);

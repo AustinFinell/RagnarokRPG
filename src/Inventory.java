@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Scanner;
 
 /**
  * Class for item storage
@@ -134,6 +135,45 @@ public class Inventory {
 			}
 		}
 		System.out.println(sb.toString());
+	}
+	
+	
+	public void equipFlow(Player player) {
+		Scanner scan = new Scanner(System.in);
+		char yesNo = 'n';
+		int choice = 0;
+		int limit = 0;
+		System.out.println("Would you like to equip an item? (Y/N)");
+		yesNo = scan.nextLine().toLowerCase().charAt(0);
+		while(yesNo != 'y' && yesNo != 'n') {
+			System.out.println("Invalid input. Try again. ");
+			yesNo = scan.nextLine().toLowerCase().charAt(0);
+		}
+		if(yesNo == 'y') {
+			for(int i = 0; i < count; i++) {
+				System.out.println((i + 1) + ". " + inventory.get(i).name);
+				limit = i;
+			}
+			System.out.println("Which item would you like to equip? (0 to exit)");
+			
+			choice = scan.nextInt();
+			while(choice < 0 || choice > limit + 1) {
+				System.out.println("Invalid input. Try again.");
+				choice = scan.nextInt();
+			}
+			
+			if (choice == 0) {
+				return;
+			}
+			else if(inventory.get(choice - 1) instanceof Equipable) {
+				player.equipItem((Equipable)inventory.get(choice - 1));
+			}
+			else {
+				System.out.println("Can't equip that item.");
+			}	
+			
+		}
+		
 	}
 	
 	public void sort() {

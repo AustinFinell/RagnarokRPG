@@ -14,7 +14,8 @@ public class Shop {
 		int item = 0;
 		
 		inv.displayInv();
-		System.out.println("Welcome to the blade smith.");
+		System.out.println("Welcome to the shop.");
+		System.out.println("You have " + player.inv.coins + " coins.");
 		System.out.print("0 to exit, 1 to buy, 2 to sell: ");
 		
 		buySell = scan.nextInt();
@@ -34,6 +35,7 @@ public class Shop {
 				System.out.println((i+1) + ". " + inv.get(i).name + " Price: " + inv.get(i).value);
 				tempCount = i;
 			}
+			System.out.println("Coins: " + player.inv.coins);
 			System.out.print("What would you like to buy? (0 to exit) ");
 			item = scan.nextInt();
 			
