@@ -16,7 +16,7 @@ public class Forest {
 		
 		rat.inv.coins += rand.nextInt(6);
 		bat.inv.coins += rand.nextInt(11);
-		giantRat.inv.coins += rand.nextInt(21);
+		giantRat.inv.coins += rand.nextInt(16);
 		
 		
 		new Encounter(player, rat);

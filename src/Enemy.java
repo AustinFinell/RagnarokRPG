@@ -79,7 +79,7 @@ public class Enemy extends Character {
 		System.out.println(target.name + " has " + target.health + " health left.\n");
 		
 		if(target.isDead()) {
-			System.out.println(name + " is dead!");
+			System.out.println(target.name + " is dead!");
 			target.death();
 		}
 	}
