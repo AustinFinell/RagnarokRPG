@@ -108,6 +108,9 @@ public class Inventory {
 		return result;
 	}
 	
+	public GameObject get(int i) {
+		return inventory.get(i);
+	}
 	
 	/**
 	 * Outputs the contents of the inventory to the console
