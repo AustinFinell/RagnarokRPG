@@ -26,8 +26,9 @@ public class Encounter {
 				enemy.name.toLowerCase().charAt(0) == 'i' || enemy.name.toLowerCase().charAt(0) == 'o' || 
 				enemy.name.toLowerCase().charAt(0) == 'u') {
 			System.out.println(player.name + " has encountered an " + enemy.name +"!\n");
+		}else {
+			System.out.println(player.name + " has encountered a " + enemy.name +"!\n");
 		}
-		System.out.println(player.name + " has encountered a " + enemy.name +"!\n");
 		
 		if(pDex > eEvade) {
 			turn = 1;
@@ -95,11 +96,18 @@ public class Encounter {
 						}
 						
 					}
+					if (count == 1) {
+						System.out.println("You have no food.");
+						continue;
+					}
 					System.out.println("Choose the food to consume. (0 to cancel)");
 					
 					while (choice > count || choice < 0) {
 						try {
 							choice = scan.nextInt();
+							if(choice > count || choice < 0) {
+								System.out.print("Invalid input. Try again: ");
+							}
 						} catch ( InputMismatchException e) {
 							scan.next();
 							System.out.print("Must enter a number. Try again: ");
