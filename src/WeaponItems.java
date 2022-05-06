@@ -1,4 +1,9 @@
 
+/**
+ * Class that instantiates the weapons in the game
+ * @author Austin Finell
+ *
+ */
 public class WeaponItems {
 	
 	protected Weapon woodenSword;
@@ -10,7 +15,9 @@ public class WeaponItems {
 	protected Weapon steelAxe;
 	protected Weapon mythicAxe;
 	
-	
+	/**
+	 * constructor that instantiates the weapons
+	 */
 	WeaponItems(){
 		woodenSword = new Weapon("Wooden Sword", 10, 2, EquipSlot.MAINHAND);
 		ironSword = new Weapon("Iron Sword", 50, 5, EquipSlot.MAINHAND);

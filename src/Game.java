@@ -1,16 +1,22 @@
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
+/**
+ * Main control loop for RagnarokRPG.
+ * @author Austin Finell
+ * Last Update: 5/6/2022
+ *
+ */
 public class Game {
 	
 	public static void main(String[] args) {
 		
-		boolean flag = true;
+		
 		Scanner scan = new Scanner(System.in);;
 		Town town;
+		
+		boolean running = true;
 		int direction = -1;
-		int buySell = -1;
-		int item = -1;
 		boolean input = false;
 		
 		System.out.println("What is your name?");
@@ -25,16 +31,18 @@ public class Game {
 		
 		
 		
-		while(flag) {
+		while(running) {
+			
 			town = new Town();
-			scan = new Scanner(System.in);
+			
 			player.health = player.maxHealth;
 			player.mana = player.maxMana;
+			
+			
 			direction = -1;
-			buySell = -1;
-			item = -1;
 			input = false;
 			
+			//Introduce the player to town and lay out their options
 			System.out.println("You are in town.\n");
 			System.out.println("Shops");
 			System.out.println("\t1. Blade Smith");
@@ -50,9 +58,15 @@ public class Game {
 			System.out.println("\t9. Player Stats");
 			System.out.print("What would you like to do? (0 to quit) ");
 			
+			
+			//Exception handled input from player
 			while(!input) {
 				try {
 					direction = scan.nextInt();
+					while(direction < 0 || direction > 9) {
+						System.out.print("You can't go that way! Try again: ");
+						direction = scan.nextInt();
+					}
 					input = true;
 				} catch (InputMismatchException e){
 					System.out.print("\nMust enter a number. Try again: ");
@@ -62,50 +76,46 @@ public class Game {
 			}
 			
 			
-			if (direction == 0) {
-				flag = false;
-				continue;
-			}
-			
-			if (direction == 1) {
+			//Switch for player decision
+			switch (direction){
+			case 0:
+				running = false;
+				break;
+			case 1:
 				town.bladeSmith.enter(player);
-			}
-			
-			if (direction == 2) {
+				break;
+			case 2:
 				town.leatherWorker.enter(player);
-			}
-			
-			if (direction == 3) {
+				break;
+			case 3:
 				town.armorer.enter(player);
-			}
-			
-			if (direction == 4) {
+				break;
+			case 4:
 				town.food.enter(player);
-			}
-			
-			if (direction == 5) {
+				break;
+			case 5:
 				new Forest(player);
-			}
-			
-			if (direction == 6) {
+				break;
+			case 6:
 				new Cave(player);
-			}
-			
-			if (direction == 7) {
+				break;
+			case 7:
 				new Mountain(player);
-			}
-			
-			if (direction == 8) {
+				break;
+			case 8:
 				player.inv.displayInv();
 				player.inv.equipFlow(player);
-			}
-			
-			if (direction == 9) {
+				break;
+			case 9:
 				System.out.println(player);
+				break;
+			default:
+				break;
 			}
 			
-		
 		}
+		
+		scan.close();
 	
 
 	}

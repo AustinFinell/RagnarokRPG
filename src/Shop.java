@@ -1,14 +1,26 @@
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
+/**
+ * Class for shops that manages shop control flow and trading with players
+ * @author Austin Finell
+ *
+ */
 public class Shop {
 	
 	protected Inventory inv;
 	
+	/**
+	 * initializes the inventory for the shop
+	 */
 	Shop(){
 		inv = new Inventory();
 	}
 	
+	/**
+	 * The control flow for when a player enters a shop.
+	 * @param player that enters shop
+	 */
 	public void enter(Player player) {
 		Scanner scan = new Scanner(System.in);
 		int buySell = -1;
@@ -104,6 +116,11 @@ public class Shop {
 		
 	}
 	
+	/**
+	 * Allows the player to buy from the shop.
+	 * @param player buying an item
+	 * @param item to be bought
+	 */
 	public void buy(Player player, GameObject item){
 		if(this.inv.contains(item) && player.inv.coins >= item.value && player.inv.count < player.inv.capacity) {
 			player.inv.coins -= item.value;
@@ -124,6 +141,11 @@ public class Shop {
 		
 	}
 	
+	/**
+	 * Allows the player to sell items to the shop
+	 * @param player selling the item
+	 * @param item to be sold
+	 */
 	public void sell(Player player, GameObject item) {
 		Scanner scan = new Scanner(System.in);
 		char response;

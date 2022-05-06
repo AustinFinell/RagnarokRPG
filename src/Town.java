@@ -1,3 +1,9 @@
+
+/**
+ * Initializes the shops in the town and stocks their inventory.
+ * @author Austin Finell
+ *
+ */
 public class Town {
 	
 	protected HealthItems hpItem;
@@ -9,7 +15,10 @@ public class Town {
 	protected Shop leatherWorker;
 	protected Shop food;
 	
-	
+	/**
+	 * Initializes the items to be loaded into the shop inventories and the shops.
+	 * Adds the items to the shops.
+	 */
 	Town(){
 		hpItem = new HealthItems();
 		weap = new WeaponItems();

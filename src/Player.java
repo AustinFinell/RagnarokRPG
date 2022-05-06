@@ -166,6 +166,11 @@ public class Player extends Character{
 		this.attack = attack;
 	}
 	
+	
+	/**
+	 * Heals player with respect to maxHealth
+	 * @param value to be healed
+	 */
 	public void heal(int value) {
 		health += value;
 		if(health > maxHealth) {
@@ -173,6 +178,11 @@ public class Player extends Character{
 		}
 	}
 	
+	
+	/**
+	 * Regenerates player mana with respect to maxMana
+	 * @param value to be regenerated
+	 */
 	public void regenerate(int value) {
 		mana += value;
 		if(mana > maxMana) {
@@ -366,6 +376,10 @@ public class Player extends Character{
 			
 	}
 	
+	/**
+	 * Checks if player has leveled up. If they have updates the required experience to level up again
+	 * and starts the level up control loop
+	 */
 	public void levelCheck() {
 		if(experience > expRequired) {
 			experience -= expRequired;
@@ -374,6 +388,10 @@ public class Player extends Character{
 		}
 	}
 	
+	/**
+	 * Controls how much damage a player does to the target.
+	 * @param target to be attacked
+	 */
 	public void attack(Enemy target) {
 		Random rand = new Random();
 		
@@ -403,11 +421,16 @@ public class Player extends Character{
 		}
 	}
 	
+	/**
+	 * displays the player inventory
+	 */
 	public void displayInv() {
 		inv.displayInv();
 	}
 	
-	
+	/**
+	 * String representation of the player
+	 */
 	public String toString() {
 		StringBuilder sb = new StringBuilder();
 		sb.append("\n-------------------------------\n");

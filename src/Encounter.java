@@ -2,6 +2,11 @@ import java.util.InputMismatchException;
 import java.util.Random;
 import java.util.Scanner;
 
+/**
+ * Control flow for what happens in an encounter between a player and enemy
+ * @author Austin Finell
+ *
+ */
 public class Encounter {
 	
 	private int pDex;
@@ -13,6 +18,11 @@ public class Encounter {
 	private Random rand;
 	private boolean pDefending;
 	
+	/**
+	 * Initializes an encounter between a player and enemy
+	 * @param player in the encounter
+	 * @param enemy in the encounter
+	 */
 	Encounter(Player player, Enemy enemy){
 		rand = new Random();
 		scan = new Scanner(System.in);
@@ -20,7 +30,7 @@ public class Encounter {
 		pDex = rand.nextInt(player.getDex());
 		eEvade = rand.nextInt(enemy.getEvade());
 		
-		
+		//Introduces the battle
 		System.out.println("\n---Battle---\n");
 		if(		enemy.name.toLowerCase().charAt(0) == 'a' || enemy.name.toLowerCase().charAt(0) == 'e' || 
 				enemy.name.toLowerCase().charAt(0) == 'i' || enemy.name.toLowerCase().charAt(0) == 'o' || 
@@ -30,16 +40,20 @@ public class Encounter {
 			System.out.println(player.name + " has encountered a " + enemy.name +"!\n");
 		}
 		
+		
+		//Determine who goes first
 		if(pDex > eEvade) {
 			turn = 1;
 		}
-		
 		else {
 			turn = 0;
 		}
 		
 		
+		//Main encounter loop
 		while(!player.isDead() && !enemy.isDead()) {
+			
+			//Player's turn
 			if (turn == 1) {
 				pDefending = false;
 				move = -1;
@@ -51,6 +65,7 @@ public class Encounter {
 						+ "\n3. Consumable"
 						+ "\n4. Run");
 				
+				//Input validation
 				while (move < 1 || move > 4) {
 					try {
 						move = scan.nextInt();
@@ -64,16 +79,19 @@ public class Encounter {
 					}
 				}
 				
+				//Player attacks
 				if(move == 1) {
 					player.attack(enemy);
 					turn = 0;
 				}
 				
+				//player defends
 				if(move == 2) {
 					pDefending = true;
 					turn = 0;
 				}
 				
+				//Consume item control flow
 				if(move == 3) {
 					int choice = -1;
 					int count = 1;
@@ -134,13 +152,12 @@ public class Encounter {
 						turn = 0;
 					}
 					
-					
-					
 				}
 				
+				//Player tries to run rolls for success
 				if(move == 4) {
 					run = rand.nextInt(10) + 1;
-					if (run > 5) {
+					if (run > 6) {
 						System.out.println("You successfully run from the " + enemy.name + "!");
 						break;
 					}
@@ -152,14 +169,19 @@ public class Encounter {
 				
 			}
 			
+			//enemy's turn
 			else if (turn == 0) {
+				
+				//increase player defence if defending and resets after
 				if (pDefending) {
-					int temp = player.getDefence();
+					int temp = player.getDefence()+1;
 					player.setDefence(temp * 2);
 					enemy.attack(player);
-					player.setDefence(temp);
+					player.setDefence(temp-1);
 					turn = 1;
 				}
+				
+				//attack player
 				else {
 					enemy.attack(player);
 					turn = 1;

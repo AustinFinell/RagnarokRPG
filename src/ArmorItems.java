@@ -1,4 +1,9 @@
 
+/**
+ * Class for armor initialization
+ * @author Austin Finell
+ *
+ */
 public class ArmorItems {
 	
 	protected Armor leatherHelmet;
@@ -46,6 +51,9 @@ public class ArmorItems {
 	protected Armor ironShield;
 	protected Armor steelShield;
 	
+	/**
+	 * Initializes the armor in the game
+	 */
 	ArmorItems(){
 		leatherHelmet = new Armor("Leather Helmet", 10, 1, EquipSlot.HEAD);
 		scaleHelmet = new Armor("Scale Helmet", 20, 2, EquipSlot.HEAD);
@@ -84,9 +92,9 @@ public class ArmorItems {
 		steelBoots = new Armor("Steel Boots", 40, 4, EquipSlot.FEET);
 		
 		woodenShield = new Armor("Wooden Shield", 15, 2, EquipSlot.OFFHAND);
-		bronzeShield = new Armor("Wooden Shield", 15, 2, EquipSlot.OFFHAND);
-		ironShield = new Armor("Wooden Shield", 15, 2, EquipSlot.OFFHAND);
-		steelShield = new Armor("Wooden Shield", 15, 2, EquipSlot.OFFHAND);
+		bronzeShield = new Armor("Bronze Shield", 30, 3, EquipSlot.OFFHAND);
+		ironShield = new Armor("Iron Shield", 45, 4, EquipSlot.OFFHAND);
+		steelShield = new Armor("Steel Shield", 60, 5, EquipSlot.OFFHAND);
 	}
 	
 }

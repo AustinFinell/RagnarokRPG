@@ -1,6 +1,10 @@
 import java.util.Random;
 
-
+/**
+ * Mountain instance. Instantiates the encounters that happen in the mountains.
+ * @author Austin Finell
+ *
+ */
 public class Mountain {
 	
 	private Enemy ogre;
@@ -8,6 +12,10 @@ public class Mountain {
 	private Enemy dragon;
 	Random rand;
 	
+	/**
+	 * constructor for the mountain instance
+	 * @param player to enter mountain instance
+	 */
 	Mountain(Player player){
 		rand = new Random();
 		ogre = new Enemy("ogre", 50, 0, 6, 4, 5, 2, 15);

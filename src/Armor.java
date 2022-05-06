@@ -13,12 +13,27 @@ public class Armor extends Equipable{
 		this.defence = defence;
 	}
 	
+	/**
+	 * returns the defence the armor provides
+	 * @return defence the armor provides
+	 */
 	public int getDefence() {
 		return defence;
 	}
 	
+	/**
+	 * sets the defence the armor provides
+	 * @param defence the armor provides
+	 */
 	public void setDefence(int defence) {
 		this.defence = defence;
+	}
+	
+	/**
+	 * Return string representation of the Armor
+	 */
+	public String toString() {
+		return super.toString();
 	}
 
 }

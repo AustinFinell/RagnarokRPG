@@ -60,8 +60,11 @@ public abstract class GameObject implements Comparable<GameObject>{
 		return value;
 	}
 	
-	
-	
+	/**
+	 * Allows game object to be sorted by value, then by name.
+	 * @param item to be compared
+	 * @return how much item is different - int
+	 */
 	public int compareTo(GameObject item) {
 		int result = this.value - item.value;
 

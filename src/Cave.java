@@ -1,5 +1,10 @@
 import java.util.Random;
 
+/**
+ * Class for cave instance in the game
+ * @author Austin Finell
+ *
+ */
 public class Cave {
 	
 	private Enemy goblin1;
@@ -8,6 +13,10 @@ public class Cave {
 	private Enemy goblinChief;
 	Random rand;
 	
+	/**
+	 * Initializes the enemies in the cave and the coins they reward
+	 * @param player to enter the cave
+	 */
 	Cave(Player player){
 		rand = new Random();
 		goblin1 = new Enemy("goblin", 30, 0, 5, 2, 5, 3, 10);
