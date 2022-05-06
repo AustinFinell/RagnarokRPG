@@ -139,6 +139,10 @@ public class Inventory {
 	}
 	
 	
+	/**
+	 * Equipment flow for equiping items
+	 * @param player to equip items
+	 */
 	public void equipFlow(Player player) {
 		Scanner scan = new Scanner(System.in);
 		char yesNo = 'n';
@@ -191,6 +195,9 @@ public class Inventory {
 		
 	}
 	
+	/**
+	 * sorts inventory
+	 */
 	public void sort() {
 		inventory.sort(null);
 	}
